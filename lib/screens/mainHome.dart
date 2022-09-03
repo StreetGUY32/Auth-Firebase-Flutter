@@ -56,7 +56,7 @@ class _MainHomeState extends State<MainHome> {
                             ),
                           ),
                           const SizedBox(
-                            height: 20,
+                            height: 10,
                           ),
                           const Text(
                             'Login As Doctor',
@@ -67,7 +67,7 @@ class _MainHomeState extends State<MainHome> {
                             ), //Textstyle
                           ), //Text
                           const SizedBox(
-                            height: 20,
+                            height: 10,
                           ),
                           const Text(
                             'To Access All Doctor menu, Please login!',
@@ -77,10 +77,10 @@ class _MainHomeState extends State<MainHome> {
                             ),
                           ),
                           const SizedBox(
-                            height: 20,
+                            height: 10,
                           ),
                           SizedBox(
-                            width: 100,
+                            width: 120,
                             child: ElevatedButton(
                               onPressed: () {
                                 Navigator.push(
@@ -92,13 +92,17 @@ class _MainHomeState extends State<MainHome> {
                                   backgroundColor:
                                       MaterialStateProperty.all(Colors.white)),
                               child: Padding(
-                                padding: const EdgeInsets.all(4),
+                                padding: const EdgeInsets.all(7),
                                 child: Row(
                                   children: const [
+                                    // Expanded(
                                     Icon(
+                                      // Icons.wi
                                       Icons.touch_app,
                                       color: Colors.indigo,
                                     ),
+                                    //),
+
                                     Text('Login',
                                         style: TextStyle(color: Colors.indigo)),
                                   ],
@@ -115,74 +119,83 @@ class _MainHomeState extends State<MainHome> {
                   elevation: 50,
                   shadowColor: Colors.black,
                   color: Colors.indigo,
-                  child: SizedBox(
-                    width: 300,
-                    height: 400,
-                    child: Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Column(
-                        children: [
-                          const CircleAvatar(
-                            backgroundColor: Colors.indigo,
-                            radius: 108,
-                            child: CircleAvatar(
-                              backgroundImage: AssetImage(
-                                  'assets/images/login_threedee.png'),
-                              radius: 100,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const Text(
-                            'Login As Patient',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const Text(
-                            'To Access All Patient menu, Please login!',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.white,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          SizedBox(
-                            width: 100,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SigninScreen()));
-                              },
-                              style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all(Colors.white)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(4),
-                                child: Row(
-                                  children: const [
-                                    Icon(
-                                      Icons.touch_app,
-                                      color: Colors.indigo,
-                                    ),
-                                    Text('Login',
-                                        style: TextStyle(color: Colors.indigo)),
-                                  ],
+                  child: Flexible(
+                    child: SizedBox(
+                      width: 300,
+                      height: 400,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const CircleAvatar(
+                                backgroundColor: Colors.indigo,
+                                radius: 108,
+                                child: CircleAvatar(
+                                  backgroundImage: AssetImage(
+                                      'assets/images/login_threedee.png'),
+                                  radius: 100,
                                 ),
                               ),
-                            ),
-                          )
-                        ],
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const Text(
+                                'Login As Patient',
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const Text(
+                                'To Access All Patient menu, Please login!',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              SizedBox(
+                                width: 120,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                SigninScreen()));
+                                  },
+                                  style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.white)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(4),
+                                    child: Row(
+                                      children: const [
+                                        Icon(
+                                          Icons.touch_app,
+                                          color: Colors.indigo,
+                                        ),
+                                        Text('Login',
+                                            style: TextStyle(
+                                                color: Colors.indigo)),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ),

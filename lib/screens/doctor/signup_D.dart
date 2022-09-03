@@ -21,13 +21,14 @@ class _signUpDocState extends State<signUpDoc> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
   final TextEditingController _cnicController = TextEditingController();
-  final TextEditingController _certificationController =
-      TextEditingController();
   final TextEditingController _educationController = TextEditingController();
   final TextEditingController _experienceController = TextEditingController();
   final TextEditingController _institutionController = TextEditingController();
-  final TextEditingController _specialityController = TextEditingController();
+  final TextEditingController _specializationController =
+      TextEditingController();
   final TextEditingController _timingController = TextEditingController();
+  final TextEditingController _daysController = TextEditingController();
+  final TextEditingController _genderController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -93,6 +94,11 @@ class _signUpDocState extends State<signUpDoc> {
                 const SizedBox(
                   height: 20,
                 ),
+                reuseableTextField("Enter Gender",
+                    Icons.card_membership_outlined, false, _genderController),
+                const SizedBox(
+                  height: 20,
+                ),
                 reuseableTextField("Your Education", Icons.book_online, false,
                     _educationController),
                 const SizedBox(
@@ -103,8 +109,11 @@ class _signUpDocState extends State<signUpDoc> {
                 const SizedBox(
                   height: 20,
                 ),
-                reuseableTextField("Your Specialty",
-                    Icons.military_tech_outlined, false, _specialityController),
+                reuseableTextField(
+                    "Your Specialization",
+                    Icons.military_tech_outlined,
+                    false,
+                    _specializationController),
                 const SizedBox(
                   height: 20,
                 ),
@@ -118,6 +127,11 @@ class _signUpDocState extends State<signUpDoc> {
                 ),
                 reuseableTextField(
                     "Your Timing", Icons.timer, false, _timingController),
+                const SizedBox(
+                  height: 20,
+                ),
+                reuseableTextField(
+                    "Your Days", Icons.timer, false, _daysController),
                 const SizedBox(
                   height: 20,
                 ),
@@ -135,15 +149,17 @@ class _signUpDocState extends State<signUpDoc> {
                           'D_Email': _emailController.text,
                           'D_Password': _passwordController.text,
                           'D_Address': _addressController.text,
-                          'DF_Phone': _phoneController.text,
-                          'P_CNIC': _cnicController.text,
+                          'D_PhoneNumber': _phoneController.text,
+                          'D_Cnic': _cnicController.text,
                           'D_Eductaion': _educationController.text,
-                          'P_Certification': _certificationController.text,
-                          'P_Experience': _experienceController.text,
-                          'P_Institution': _institutionController.text,
-                          'P_Speciality': _specialityController.text,
-                          'P_Timing': _timingController.text,
-                          "uid": UID,
+                          'D_Gender': _genderController.text,
+                          'D_Experience': _experienceController.text,
+                          'D_Institution': _institutionController.text,
+                          'D_Specialization': _specializationController.text,
+                          'D_Timings': _timingController.text,
+                          'D_Days': _daysController.text,
+                          'status': "available",
+                          'D_Id': UID,
                           "role": "doctor",
                         })
                         .then((value) => {

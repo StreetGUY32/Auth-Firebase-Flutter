@@ -115,12 +115,13 @@ class _signUpScreenState extends State<signUpScreen> {
                           'P_Email': _emailController.text,
                           'P_Password': _passwordController.text,
                           'P_Address': _addressController.text,
-                          'P_Phone': _phoneController.text,
+                          'P_PhoneNumber': _phoneController.text,
                           'P_Age': _ageController.text,
                           'P_CNIC': _cnicController.text,
                           'P_Gender': _genderController.text,
-                          "uid": UID,
+                          'P_Id': UID,
                           "role": "patient",
+                          "status": "available",
                         })
                         .then((value) => {
                               print('user created'),
