@@ -49,91 +49,97 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            child: Column(children: [
-              // StreamBuilder(
-              //     stream: FirebaseFirestore.instance
-              //         .collection('Patients')
-              //         .where('uid', isEqualTo: currentUser.currentUser!.uid)
-              //         .snapshots(),
-              //     builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-              //       if (snapshot.hasData) {
-              //         return ListView.builder(
-              //           shrinkWrap: true,
-              //           itemCount: snapshot.data!.docs.length,
-              //           itemBuilder: (context, index) {
-              //             var data = snapshot.data!.docs[index];
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            children: [
+              Container(
+                child: Column(children: [
+                  // StreamBuilder(
+                  //     stream: FirebaseFirestore.instance
+                  //         .collection('Patients')
+                  //         .where('uid', isEqualTo: currentUser.currentUser!.uid)
+                  //         .snapshots(),
+                  //     builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                  //       if (snapshot.hasData) {
+                  //         return ListView.builder(
+                  //           shrinkWrap: true,
+                  //           itemCount: snapshot.data!.docs.length,
+                  //           itemBuilder: (context, index) {
+                  //             var data = snapshot.data!.docs[index];
 
-              //             return ListTile(
-              //               title: Text(data['P_Name']),
-              //               subtitle: Text(data['P_Address']),
-              //               trailing: Text(data['P_Email']),
-              //             );
-              //           },
-              //         );
-              //       } else {
-              //         return CircularProgressIndicator();
-              //       }
-              //     }),
-              Text(
-                'Name: $name',
-                style: const TextStyle(fontSize: 20),
-              ),
-              Text(
-                'Address: $address',
-                style: const TextStyle(fontSize: 20),
-              ),
-              Text(
-                'Email: $email',
-                style: const TextStyle(fontSize: 20),
-              ),
-              Text(
-                'Password: $password',
-                style: const TextStyle(fontSize: 20),
-              ),
-              Text(
-                'Role: $role',
-                style: const TextStyle(fontSize: 20),
-              ),
-            ]),
-          ),
-          Center(
-            child: ElevatedButton(
-              child: Text("Log Out"),
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
-                print('Signed out');
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SigninScreen()));
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text(
-                      'You have been signed out. See you soon!',
-                      style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                    backgroundColor: Colors.indigo,
-                    shape: Border(
-                      top: BorderSide(
-                        color: Colors.indigo,
-                        width: 2,
-                      ),
-                      bottom: BorderSide(
-                        color: Colors.indigo,
-                        width: 2,
-                      ),
-                    ),
+                  //             return ListTile(
+                  //               title: Text(data['P_Name']),
+                  //               subtitle: Text(data['P_Address']),
+                  //               trailing: Text(data['P_Email']),
+                  //             );
+                  //           },
+                  //         );
+                  //       } else {
+                  //         return CircularProgressIndicator();
+                  //       }
+                  //     }),
+                  Text(
+                    'Name: $name',
+                    style: const TextStyle(fontSize: 20),
                   ),
-                );
-              },
-            ),
+                  Text(
+                    'Address: $address',
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                  Text(
+                    'Email: $email',
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                  Text(
+                    'Password: $password',
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                  Text(
+                    'Role: $role',
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                ]),
+              ),
+              Center(
+                child: ElevatedButton(
+                  child: Text("Log Out"),
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut();
+                    print('Signed out');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SigninScreen()));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                          'You have been signed out. See you soon!',
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                        ),
+                        backgroundColor: Colors.indigo,
+                        shape: Border(
+                          top: BorderSide(
+                            color: Colors.indigo,
+                            width: 2,
+                          ),
+                          bottom: BorderSide(
+                            color: Colors.indigo,
+                            width: 2,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
