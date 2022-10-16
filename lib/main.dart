@@ -2,6 +2,7 @@ import 'package:dbtest/firebase_options.dart';
 import 'package:dbtest/screens/mainHome.dart';
 import 'package:dbtest/screens/patient/homeScreen_p.dart';
 import 'package:dbtest/screens/patient/signin_p.dart';
+import 'package:dbtest/screens/signInScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: auth.currentUser == null ? SigninScreen() : HomeScreen(),
-      home: MainHome(),
+      home: SignInScreen(),
     );
   }
 }

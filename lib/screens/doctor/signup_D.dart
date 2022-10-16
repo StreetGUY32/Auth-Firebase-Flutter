@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../signInScreen.dart';
+
 class signUpDoc extends StatefulWidget {
   const signUpDoc({Key? key}) : super(key: key);
 
@@ -13,7 +15,7 @@ class signUpDoc extends StatefulWidget {
 }
 
 class _signUpDocState extends State<signUpDoc> {
-  CollectionReference DocRef = FirebaseFirestore.instance.collection('Doctors');
+  CollectionReference DocRef = FirebaseFirestore.instance.collection('doctors');
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -39,6 +41,7 @@ class _signUpDocState extends State<signUpDoc> {
         title: const Text(
           'Sign Up',
           style: TextStyle(
+            color: Colors.indigo,
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
@@ -48,11 +51,7 @@ class _signUpDocState extends State<signUpDoc> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-            hexStringToColor("FFFFFF"),
-            hexStringToColor("0000FF"),
-            hexStringToColor("0D98BA"),
-          ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+          color: Colors.white,
         ),
         child: SingleChildScrollView(
           child: Padding(
@@ -135,14 +134,14 @@ class _signUpDocState extends State<signUpDoc> {
                           'D_Email': _emailController.text,
                           'D_Password': _passwordController.text,
                           'D_Address': _addressController.text,
-                          'DF_Phone': _phoneController.text,
-                          'P_CNIC': _cnicController.text,
+                          'D_Phone': _phoneController.text,
+                          'D_CNIC': _cnicController.text,
                           'D_Eductaion': _educationController.text,
-                          'P_Certification': _certificationController.text,
-                          'P_Experience': _experienceController.text,
-                          'P_Institution': _institutionController.text,
-                          'P_Speciality': _specialityController.text,
-                          'P_Timing': _timingController.text,
+                          'D_Certification': _certificationController.text,
+                          'D_Experience': _experienceController.text,
+                          'D_Institution': _institutionController.text,
+                          'D_Speciality': _specialityController.text,
+                          'D_Timing': _timingController.text,
                           "uid": UID,
                           "role": "doctor",
                         })
@@ -172,7 +171,7 @@ class _signUpDocState extends State<signUpDoc> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => signInDoc()))
+                                      builder: (context) => SignInScreen()))
                             })
                         .onError(
                           (error, stackTrace) => {

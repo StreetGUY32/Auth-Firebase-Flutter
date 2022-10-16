@@ -15,7 +15,7 @@ class signUpScreen extends StatefulWidget {
 
 class _signUpScreenState extends State<signUpScreen> {
   CollectionReference patientRef =
-      FirebaseFirestore.instance.collection('Patients');
+      FirebaseFirestore.instance.collection('users');
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -32,10 +32,11 @@ class _signUpScreenState extends State<signUpScreen> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        elevation: 0,
+        elevation: 0.1,
         title: const Text(
           'Sign Up',
           style: TextStyle(
+            color: Colors.indigo,
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
@@ -45,11 +46,7 @@ class _signUpScreenState extends State<signUpScreen> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-            hexStringToColor("FFFFFF"),
-            hexStringToColor("0000FF"),
-            hexStringToColor("0D98BA"),
-          ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+          color: Colors.white,
         ),
         child: SingleChildScrollView(
           child: Padding(

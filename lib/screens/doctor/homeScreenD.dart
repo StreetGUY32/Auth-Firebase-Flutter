@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dbtest/reuseable_widgets/reuseable_widget.dart';
 import 'package:dbtest/screens/doctor/signin_D.dart';
+import 'package:dbtest/screens/signInScreen.dart';
 import 'package:dbtest/utils/colors_utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -35,11 +36,11 @@ class _HomeScreenDocState extends State<HomeScreenDoc> {
         password = vari.data()!['D_Password'];
         role = vari.data()!['role'];
       } else {
-        name = "Received Empty Value";
-        address = "Received Empty Value";
-        email = "Received Empty Value";
-        password = "Received Empty Value";
-        role = "Received Empty Value";
+        name = "Received name Empty Value";
+        address = "Received address Empty Value";
+        email = "Received email Empty Value";
+        password = "Received password Empty Value";
+        role = "Received role Empty Value";
       }
     });
   }
@@ -85,7 +86,7 @@ class _HomeScreenDocState extends State<HomeScreenDoc> {
                 FirebaseAuth.instance.signOut();
                 print('Signed out');
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => signInDoc()));
+                    MaterialPageRoute(builder: (context) => SignInScreen()));
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text(
