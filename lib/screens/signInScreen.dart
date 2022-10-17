@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dbtest/screens/doctor/doc_token.dart';
 import 'package:dbtest/screens/mainHome.dart';
 import 'package:dbtest/screens/doctor/homeScreenD.dart';
 import 'package:dbtest/screens/patient/homeScreen_p.dart';
@@ -9,6 +10,8 @@ import 'package:dbtest/reuseable_widgets/reuseable_widget.dart';
 import 'package:dbtest/utils/colors_utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../Patient_Panel/Patient_Dashboard.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -78,10 +81,11 @@ class _SignInScreenState extends State<SignInScreen> {
                         .get();
 
                     if (patients.docs.isNotEmpty) {
+                      HandleToken().insertToken();
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomeScreen()));
+                              builder: (context) => PatientDashboardPage()));
                     } else if (doctors.docs.isNotEmpty) {
                       Navigator.push(
                           context,

@@ -120,6 +120,7 @@ class _signUpScreenState extends State<signUpScreen> {
                           'P_Gender': _genderController.text,
                           "P_id": UID,
                           "role": "patient",
+                          "P_Token": "",
                         })
                         .then((value) => {
                               print('user created'),
