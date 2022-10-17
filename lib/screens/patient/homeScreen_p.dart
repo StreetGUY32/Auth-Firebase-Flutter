@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () async {
                 authFunction().signOut();
                 print('Signed out');
-                Navigator.push(context,
+                Navigator.pushReplacement(context,
                     MaterialPageRoute(builder: (context) => SignInScreen()));
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
