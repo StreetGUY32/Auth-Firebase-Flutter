@@ -142,7 +142,7 @@ class _signUpDocState extends State<signUpDoc> {
                           'D_Institution': _institutionController.text,
                           'D_Speciality': _specialityController.text,
                           'D_Timing': _timingController.text,
-                          "uid": UID,
+                          "D_id": UID,
                           "role": "doctor",
                         })
                         .then((value) => {

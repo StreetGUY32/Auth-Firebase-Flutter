@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dbtest/functions/auth.dart';
 import 'package:dbtest/screens/patient/signin_p.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../signInScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -103,11 +106,11 @@ class _HomeScreenState extends State<HomeScreen> {
           Center(
             child: ElevatedButton(
               child: Text("Log Out"),
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
+              onPressed: () async {
+                authFunction().signOut();
                 print('Signed out');
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SigninScreen()));
+                    MaterialPageRoute(builder: (context) => SignInScreen()));
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text(

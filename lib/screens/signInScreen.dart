@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dbtest/screens/mainHome.dart';
 import 'package:dbtest/screens/doctor/homeScreenD.dart';
@@ -53,38 +55,39 @@ class _SignInScreenState extends State<SignInScreen> {
                     email: _emailTextController.text,
                     password: _passwordTextController.text,
                   )
-                      .then((value) {
+                      .then((value) async {
                     // print(value);
 
-                    final userid = FirebaseAuth.instance.currentUser!.uid;
+                    final userid =
+                        FirebaseAuth.instance.currentUser!.uid.toString();
                     print(userid);
 
-                    final doctors = FirebaseFirestore.instance
+                    var doctors = await FirebaseFirestore.instance
                         .collection('Doctors')
                         .where('D_Id', isEqualTo: userid)
                         .get();
 
-                    final patients = FirebaseFirestore.instance
+                    var patients = await FirebaseFirestore.instance
                         .collection('Patients')
-                        .where('uid', isEqualTo: userid)
+                        .where('P_id', isEqualTo: userid)
                         .get();
 
-                    final admins = FirebaseFirestore.instance
+                    var admins = await FirebaseFirestore.instance
                         .collection('Admins')
                         .where('uid', isEqualTo: userid)
                         .get();
 
-                    if (doctors != null) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomeScreenDoc()));
-                    } else if (patients != null) {
+                    if (patients.docs.isNotEmpty) {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => HomeScreen()));
-                    } else if (admins != null) {
+                    } else if (doctors.docs.isNotEmpty) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeScreenDoc()));
+                    } else if (admins.docs.isNotEmpty) {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => MainHome()));
                     } else {

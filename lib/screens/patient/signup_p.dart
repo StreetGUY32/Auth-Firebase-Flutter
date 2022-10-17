@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../signInScreen.dart';
+
 class signUpScreen extends StatefulWidget {
   const signUpScreen({Key? key}) : super(key: key);
 
@@ -15,7 +17,7 @@ class signUpScreen extends StatefulWidget {
 
 class _signUpScreenState extends State<signUpScreen> {
   CollectionReference patientRef =
-      FirebaseFirestore.instance.collection('users');
+      FirebaseFirestore.instance.collection('Patients');
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -116,7 +118,7 @@ class _signUpScreenState extends State<signUpScreen> {
                           'P_Age': _ageController.text,
                           'P_CNIC': _cnicController.text,
                           'P_Gender': _genderController.text,
-                          "uid": UID,
+                          "P_id": UID,
                           "role": "patient",
                         })
                         .then((value) => {
@@ -145,7 +147,7 @@ class _signUpScreenState extends State<signUpScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SigninScreen()))
+                                      builder: (context) => SignInScreen()))
                             })
                         .onError(
                           (error, stackTrace) => {
@@ -175,7 +177,7 @@ class _signUpScreenState extends State<signUpScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => SigninScreen(),
+                                builder: (context) => SignInScreen(),
                               ),
                             )
                           },
