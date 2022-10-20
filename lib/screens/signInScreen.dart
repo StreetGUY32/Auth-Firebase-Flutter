@@ -11,6 +11,7 @@ import 'package:dbtest/utils/colors_utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../Doctor_Panel/passwordupdate/forgotpassword.dart';
 import '../Patient_Panel/Patient_Dashboard.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -81,7 +82,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         .get();
 
                     if (patients.docs.isNotEmpty) {
-                      HandleToken().insertToken();
+                      // HandleToken().insertToken();
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -197,6 +198,33 @@ class _SignInScreenState extends State<SignInScreen> {
             "Sign Up",
             style: TextStyle(
               color: Colors.indigo,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row forgotpass() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text(
+          "Forgot Password? ",
+          style: TextStyle(
+            color: Colors.white70,
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ForgotPassword()));
+          },
+          child: const Text(
+            "Click here",
+            style: TextStyle(
+              color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
