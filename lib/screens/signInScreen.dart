@@ -1,16 +1,11 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dbtest/screens/doctor/doc_token.dart';
-import 'package:dbtest/screens/mainHome.dart';
-import 'package:dbtest/screens/doctor/homeScreenD.dart';
-import 'package:dbtest/screens/patient/homeScreen_p.dart';
 import 'package:dbtest/screens/signUpScreen.dart';
 import 'package:dbtest/reuseable_widgets/reuseable_widget.dart';
-import 'package:dbtest/utils/colors_utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import '../Doctor_Panel/pages/Doctor_Pages/dochome.dart';
 import '../Doctor_Panel/passwordupdate/forgotpassword.dart';
 import '../Patient_Panel/Patient_Dashboard.dart';
 
@@ -30,18 +25,18 @@ class _SignInScreenState extends State<SignInScreen> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
         ),
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.fromLTRB(
-                20, MediaQuery.of(context).size.height * 0.2, 20, 0),
+                20, MediaQuery.of(context).size.height * 0.1, 20, 0),
             child: Column(
               children: [
-                logoWidget("assets/images/doc.png"),
+                logoWidget("assets/images_a/login.png"),
                 const SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
                 reuseableTextField("Enter Email", Icons.person_outline, false,
                     _emailTextController),
@@ -68,7 +63,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
                     var doctors = await FirebaseFirestore.instance
                         .collection('Doctors')
-                        .where('D_Id', isEqualTo: userid)
+                        .where('D_id', isEqualTo: userid)
                         .get();
 
                     var patients = await FirebaseFirestore.instance
@@ -86,15 +81,13 @@ class _SignInScreenState extends State<SignInScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PatientDashboardPage()));
+                              builder: (context) =>
+                                  const PatientDashboardPage()));
                     } else if (doctors.docs.isNotEmpty) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomeScreenDoc()));
-                    } else if (admins.docs.isNotEmpty) {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => MainHome()));
+                          MaterialPageRoute(builder: (context) => DocHome()));
+                    } else if (admins.docs.isNotEmpty) {
+                      print('Hello Admin');
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
@@ -141,36 +134,12 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     );
                   });
-                  // User? docID = FirebaseAuth.instance.currentUser!;
-                  // var doc = await FirebaseFirestore.instance
-                  //     .collection('Doctor')
-                  //     .doc(docID.uid)
-                  //     .get();
-                  // var pat = await FirebaseFirestore.instance
-                  //     .collection('Patients')
-                  //     .doc(docID.uid)
-                  //     .get();
-                  // print(pat.data());
-                  // print(doc.data());
-                  // if (pat.data()!['role'] == 'patient') {
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => HomeScreen(),
-                  //     ),
-                  //   );
-                  // } else if (doc.data()!['role'] == 'doctor') {
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => HomeScreenDoc(),
-                  //     ),
-                  //   );
-                  // } else {
-                  //   print('hello');
-                  // }
                 }),
                 signUpOption(),
+                const SizedBox(
+                  height: 20,
+                ),
+                forgotpass(),
               ],
             ),
           ),
@@ -192,7 +161,7 @@ class _SignInScreenState extends State<SignInScreen> {
         GestureDetector(
           onTap: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => SignUpScreen()));
+                MaterialPageRoute(builder: (context) => const SignUpScreen()));
           },
           child: const Text(
             "Sign Up",
@@ -213,18 +182,20 @@ class _SignInScreenState extends State<SignInScreen> {
         const Text(
           "Forgot Password? ",
           style: TextStyle(
-            color: Colors.white70,
+            color: Colors.indigo,
           ),
         ),
         GestureDetector(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => ForgotPassword()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ForgotPassword()));
           },
           child: const Text(
             "Click here",
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.indigo,
               fontWeight: FontWeight.bold,
             ),
           ),

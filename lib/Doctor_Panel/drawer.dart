@@ -1,9 +1,10 @@
+// ignore_for_file: non_constant_identifier_names, avoid_unnecessary_containers, unnecessary_string_interpolations, unnecessary_const
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dbtest/Doctor_Panel/pages/routes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart%20';
 import '../screens/signInScreen.dart';
 import '../theme.dart';
 
@@ -38,6 +39,7 @@ class _MyDrawerState extends State<MyDrawer> {
     });
   }
 
+  @override
   void initState() {
     getData();
     super.initState();
@@ -76,21 +78,21 @@ class _MyDrawerState extends State<MyDrawer> {
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
                 margin: EdgeInsets.zero,
-                decoration: BoxDecoration(color: Colors.indigo),
+                decoration: const BoxDecoration(color: Colors.indigo),
                 accountName: Text("$name",
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.normal,
                         color: Colors.white)),
                 accountEmail: Text("$email",
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.normal,
                         color: Colors.white)),
                 //currentAccountPicture: Image.network(imageURL),
-                currentAccountPicture: CircleAvatar(
+                currentAccountPicture: const CircleAvatar(
                   backgroundImage:
-                      AssetImage("assets/images/defaultdoctor.jpg"),
+                      const AssetImage("assets/images/defaultdoctor.jpg"),
                 ),
               ),
             ),
@@ -166,15 +168,17 @@ class _MyDrawerState extends State<MyDrawer> {
                 style: TextStyle(color: MyTheme.darkbluishColor),
               ),
             ),
-            Divider(
+            const Divider(
               height: 30,
               color: Colors.black,
             ),
             ListTile(
               onTap: () {
                 FirebaseAuth.instance.signOut();
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SignInScreen()));
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SignInScreen()));
               },
               leading: Icon(
                 Icons.logout,

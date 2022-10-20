@@ -1,5 +1,4 @@
 import 'package:dbtest/reuseable_widgets/reuseable_widget.dart';
-import 'package:dbtest/screens/doctor/signin_D.dart';
 import 'package:dbtest/utils/colors_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,7 +14,7 @@ class signUpDoc extends StatefulWidget {
 }
 
 class _signUpDocState extends State<signUpDoc> {
-  CollectionReference DocRef = FirebaseFirestore.instance.collection('doctors');
+  CollectionReference DocRef = FirebaseFirestore.instance.collection('Doctors');
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();

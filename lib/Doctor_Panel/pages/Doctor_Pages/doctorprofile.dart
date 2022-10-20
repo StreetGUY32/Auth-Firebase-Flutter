@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_string_interpolations, avoid_unnecessary_containers
+
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -71,7 +73,7 @@ class _docProfileState extends State<docProfile> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         title: Text(
           "Profile",
           style: TextStyle(
@@ -108,19 +110,19 @@ class _docProfileState extends State<docProfile> {
                 //crossAxisAlignment: CrossAxisAlignment.baseline,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(
+                  const Text(
                     "Name",
                     style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Text(
                     "$name",
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.normal,
                         color: Colors.white),
@@ -154,13 +156,13 @@ class _docProfileState extends State<docProfile> {
                           width: 100,
                           fit: BoxFit.cover,
                         ),
-                        Text(
+                        const Text(
                           "Specialization",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Text("$specialization",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal)),
                       ],
                     )),
@@ -182,13 +184,13 @@ class _docProfileState extends State<docProfile> {
                           width: 100,
                           fit: BoxFit.cover,
                         ),
-                        Text(
+                        const Text(
                           "Timings",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Text("$timing",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal)),
                       ],
                     )),
@@ -211,13 +213,13 @@ class _docProfileState extends State<docProfile> {
                               width: 100,
                               fit: BoxFit.cover,
                             ),
-                            Text(
+                            const Text(
                               "Available From",
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.bold),
                             ),
                             Text("$day",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.normal)),
                           ],
@@ -240,13 +242,13 @@ class _docProfileState extends State<docProfile> {
                           width: 100,
                           fit: BoxFit.cover,
                         ),
-                        Text(
+                        const Text(
                           "Email",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Text("$email",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal)),
                       ],
                     )),
@@ -268,13 +270,13 @@ class _docProfileState extends State<docProfile> {
                           width: 100,
                           fit: BoxFit.cover,
                         ),
-                        Text(
+                        const Text(
                           "Phone Number",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Text("$phonenumber",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal)),
                       ],
                     )),
@@ -296,13 +298,13 @@ class _docProfileState extends State<docProfile> {
                           width: 100,
                           fit: BoxFit.cover,
                         ),
-                        Text(
+                        const Text(
                           "Cnic",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Text("$cnic",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal)),
                       ],
                     )),
@@ -324,13 +326,13 @@ class _docProfileState extends State<docProfile> {
                           width: 100,
                           fit: BoxFit.cover,
                         ),
-                        Text(
+                        const Text(
                           "Address",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Text("$address",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal)),
                       ],
                     )),
@@ -352,13 +354,13 @@ class _docProfileState extends State<docProfile> {
                           width: 100,
                           fit: BoxFit.cover,
                         ),
-                        Text(
+                        const Text(
                           "Gender",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Text("$gender",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal)),
                       ],
                     )),
@@ -380,13 +382,13 @@ class _docProfileState extends State<docProfile> {
                           width: 100,
                           fit: BoxFit.cover,
                         ),
-                        Text(
+                        const Text(
                           "Educations",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Text("$education",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal)),
                       ],
                     )),
@@ -408,14 +410,14 @@ class _docProfileState extends State<docProfile> {
                           width: 70,
                           fit: BoxFit.cover,
                         ),
-                        Text(
+                        const Text(
                           "Institute",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Text("$institution",
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.normal,
                             )),
@@ -439,13 +441,13 @@ class _docProfileState extends State<docProfile> {
                           width: 100,
                           fit: BoxFit.cover,
                         ),
-                        Text(
+                        const Text(
                           "Experience",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         Text("$experience",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal)),
                       ],
                     )),
@@ -455,7 +457,7 @@ class _docProfileState extends State<docProfile> {
         ],
       ),
       //   ),
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
     );
   }
 }

@@ -1,10 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:fyp_app/Admin_Panel/Dashboard_Widgets/Dashboard_Home.dart';
-// import 'package:fyp_app/Admin_Panel/Pages/Doctor_Page.dart';
-// import 'package:fyp_app/Admin_Panel/Pages/Patient_Page.dart';
-import 'package:velocity_x/velocity_x.dart';
 import 'Dashboard_Widgets/Dashboard_Home.dart';
 import 'Dashboard_Widgets/Navigation_drawer.dart';
 

@@ -34,7 +34,7 @@ class DocDashboard extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.black),
+          iconTheme: const IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
           title: Text(
             "Dashboard",
@@ -63,7 +63,7 @@ class DocDashboard extends StatelessWidget {
                       // ),
                     ],
                   ),
-                  Divider(
+                  const Divider(
                     height: 30,
                     color: Color.fromARGB(255, 120, 119, 119),
                   ),
@@ -87,11 +87,11 @@ class DocDashboard extends StatelessWidget {
                                         width: 150,
                                         fit: BoxFit.cover,
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                         width: 10,
                                       ),
-                                      Text(
+                                      const Text(
                                         "Total Patients",
                                         style: TextStyle(
                                             fontSize: 16,
@@ -119,7 +119,7 @@ class DocDashboard extends StatelessWidget {
                                                   child:
                                                       CircularProgressIndicator());
                                             } else {
-                                              return CircularProgressIndicator();
+                                              return const CircularProgressIndicator();
                                             }
                                           })
                                     ],
@@ -145,18 +145,18 @@ class DocDashboard extends StatelessWidget {
                                         width: 150,
                                         fit: BoxFit.cover,
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 10,
                                         width: 10,
                                       ),
-                                      Text(
+                                      const Text(
                                         "Treated Patients",
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white),
                                       ),
-                                      Text("2",
+                                      const Text("2",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               color: Colors.white,
@@ -169,11 +169,11 @@ class DocDashboard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                     width: 10,
                   ),
-                  Divider(
+                  const Divider(
                     height: 30,
                     color: Color.fromARGB(255, 120, 119, 119),
                   ),
@@ -181,7 +181,7 @@ class DocDashboard extends StatelessWidget {
                     child: Column(
                         //mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "All Patients",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 22),
@@ -216,7 +216,7 @@ class DocDashboard extends StatelessWidget {
                                 child: Card(
                                   color: context.cardColor,
                                   //margin: const EdgeInsets.all(10),
-                                  margin: EdgeInsets.symmetric(
+                                  margin: const EdgeInsets.symmetric(
                                       horizontal: 13, vertical: 5),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(22)),
@@ -227,10 +227,10 @@ class DocDashboard extends StatelessWidget {
                                         Container(
                                           height: 80,
                                           width: 80,
-                                          padding: EdgeInsets.only(
+                                          padding: const EdgeInsets.only(
                                               left: 10, top: 10),
                                           // alignment: Alignment.centerLeft,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             image: DecorationImage(
                                                 image: AssetImage(
                                                   "assets/images/patientpp.jpg",
@@ -285,6 +285,6 @@ class DocDashboard extends StatelessWidget {
             ),
           ),
         ),
-        drawer: MyDrawer());
+        drawer: const MyDrawer());
   }
 }

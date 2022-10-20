@@ -1,11 +1,18 @@
+import 'package:dbtest/Doctor_Panel/passwordupdate/forgotpassword.dart';
 import 'package:dbtest/firebase_options.dart';
-import 'package:dbtest/screens/mainHome.dart';
 import 'package:dbtest/screens/patient/homeScreen_p.dart';
-import 'package:dbtest/screens/patient/signin_p.dart';
 import 'package:dbtest/screens/signInScreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
+import 'Doctor_Panel/pages/Doctor_Pages/docUpdate.dart';
+import 'Doctor_Panel/pages/Doctor_Pages/docdashboard.dart';
+import 'Doctor_Panel/pages/Doctor_Pages/dochome.dart';
+import 'Doctor_Panel/pages/Doctor_Pages/doctorprofile.dart';
+import 'Doctor_Panel/pages/routes.dart';
+import 'Doctor_Panel/passwordupdate/Updatepass.dart';
+import 'Doctor_Panel/passwordupdate/Updatepasspatient.dart';
 
 final auth = FirebaseAuth.instance;
 Future<void> main() async {
@@ -23,19 +30,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      // home: auth.currentUser == null ? SigninScreen() : HomeScreen(),
-      home: SignInScreen(),
+      routes: {
+        "/": (context) => SignInScreen(), //by default this page
+        MyRoutes.DocHomeR: (context) => DocHome(),
+        MyRoutes.DocProfileR: (context) => docProfile(),
+        MyRoutes.DocDashR: (context) => DocDashboard(),
+        MyRoutes.DocUpdateR: (context) => UpdateDoc(),
+        MyRoutes.Forgotpass: (context) => ForgotPassword(),
+        MyRoutes.Updatepass: (context) => ChangePassword(),
+        MyRoutes.Updatepasspatient: (context) => ChangePassPatient(),
+      },
     );
   }
 }
